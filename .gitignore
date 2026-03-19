@@ -1,0 +1,20 @@
+# Build outputs
+/obj/
+/libft_malloc.so
+/libft_malloc_*_*.so
+/test/test_debug
+
+# Compiler artifacts
+*.o
+*.a
+*.d
+*.gch
+
+# Editor settings
+/.vscode/*
+!/.vscode/launch.json
+!/.vscode/tasks.json
+/.idea/
+
+# OS files
+.DS_Store
