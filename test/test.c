@@ -25,7 +25,7 @@ int main(void)
         perror("getrlimit");
     }*/
 
-    printf("ptr: %p\n", ft_malloc(1));
+    printf("ptr: %p\n", ft_malloc(500));
 
     return 0;
 }
