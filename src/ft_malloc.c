@@ -3,6 +3,8 @@
 #include <unistd.h>
 #include <sys/mman.h>
 
+t_zone	*g_zones[3] = {NULL, NULL, NULL};
+
 size_t	round_up_page(size_t size)
 {
 	size_t	ps;
@@ -35,7 +37,6 @@ void *create_zone(t_zone_type type, size_t size)
 
 void *ft_malloc(size_t size)
 {
-	void *ptr;
 	t_zone_type	type;
 
 	size = ALIGN_UP(size);
@@ -47,10 +48,11 @@ void *ft_malloc(size_t size)
 	else
 		type = LARGE;
 
+	if (g_zones[type] == NULL)
+		g_zones[type] = create_zone(type, size);
+	
+
 
 	
-	ptr = create_zone(type, size);
-
-	
-	return ptr;
+	return g_zones[type];
 }

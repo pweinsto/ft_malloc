@@ -10,9 +10,9 @@
 
 typedef enum	e_zone_type
 {
-	TINY,
-	SMALL,
-	LARGE
+	TINY = 0,
+	SMALL = 1,
+	LARGE = 2
 }	t_zone_type;
 
 typedef struct	s_block
@@ -38,9 +38,7 @@ typedef struct	s_zone
 # define BLOCK_OVERHEAD	ALIGN_UP(sizeof(t_block))
 # define ZONE_OVERHEAD	ALIGN_UP(sizeof(t_zone))
 
-t_zone	*g_tiny;
-t_zone	*g_small;
-t_zone	*g_large;
+extern t_zone	*g_zones[3];
 
 void *ft_malloc(size_t size);
 
