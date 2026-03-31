@@ -30,7 +30,7 @@ typedef struct	s_zone
 	t_zone_type		type;
 	size_t			total_size;
 	size_t			free_size;
-	t_block			first;
+	t_block			*first;
 }	t_zone;
 
 
