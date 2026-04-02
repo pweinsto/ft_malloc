@@ -15,23 +15,26 @@ typedef enum	e_zone_type
 	LARGE = 2
 }	t_zone_type;
 
-typedef struct	s_block
-{
-	struct s_block	*prev;
-	struct s_block	*next;
-	size_t			size;
-	size_t			free;
-}	t_block;
+typedef struct s_zone	t_zone;
+typedef struct s_block	t_block;
 
-typedef struct	s_zone
+struct	s_block
 {
-	struct s_zone   *prev;
-	struct s_zone	*next;
-	t_zone_type		type;
-	size_t			total_size;
-	size_t			free_size;
-	t_block			*first;
-}	t_zone;
+	size_t	size;
+	size_t	free;
+	t_block	*prev;
+	t_block	*next;
+	t_zone	*zone;	
+};
+
+struct	s_zone
+{
+	t_zone_type	type;
+	size_t		map_length;
+	t_zone   	*prev;
+	t_zone		*next;
+	t_block		*first;
+};
 
 
 # define ALIGN_UP(x)	((((x) + (ALIGNMENT) - 1) / (ALIGNMENT)) * (ALIGNMENT))

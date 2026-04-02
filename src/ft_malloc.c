@@ -48,7 +48,8 @@ void *create_zone(t_zone_type type, size_t size)
 
 	mem = mmap(NULL, map_length, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
 
-	zone = (t_zone *)mem; 
+	zone = (t_zone *)mem;
+	zone->map_length = map_length; 
 	zone->type = type;
 	zone->prev = NULL;
 	zone->next = NULL;
@@ -109,6 +110,9 @@ void *ft_malloc(size_t size)
 	t_zone		*zone;
 	t_block		*block;
 
+	zone = NULL;
+	block = NULL;
+	
 	size = ALIGN_UP(size);
 
 	if (size <= TINY_MAX)
