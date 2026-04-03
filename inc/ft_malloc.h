@@ -44,5 +44,6 @@ struct	s_zone
 extern t_zone	*g_zones[3];
 
 void *ft_malloc(size_t size);
+void ft_free(void *ptr);
 
 # endif

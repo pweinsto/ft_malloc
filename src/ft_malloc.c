@@ -57,6 +57,7 @@ void *create_zone(t_zone_type type, size_t size)
 	first = (t_block *)((char *)mem + ZONE_OVERHEAD);
 	first->size = map_length - ZONE_OVERHEAD - BLOCK_OVERHEAD;
 	first->free = 1;
+	first->zone = zone;
 	first->prev = NULL;
 	first->next = NULL;
 
@@ -96,6 +97,7 @@ void split_block(t_block *block, size_t size)
 	new_block = (t_block *)((char *)block_to_payload(block) + size);
 	new_block->size = rest;
 	new_block->free = 1;
+	new_block->zone = block->zone;
 	new_block->prev = block;
 	new_block->next = block->next;
 	if (block->next)
