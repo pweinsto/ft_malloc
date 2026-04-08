@@ -32,7 +32,7 @@ void push_zone(t_zone **head, t_zone *zone)
 	*head = zone;
 }
 
-void *block_to_payload(t_block *block)
+static void *block_to_payload(t_block *block)
 {
 	return ((void *)((char *)block + BLOCK_OVERHEAD));
 }

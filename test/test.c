@@ -10,10 +10,14 @@ int main(void)
     void *ptrs[100];
 
     
+    show_alloc_mem();
+    
     for (int i = 0; i < 100; i++) {
         ptrs[i] = ft_malloc(20);
         memcpy(ptrs[i], "Hello World!", 20);
     }
+
+    show_alloc_mem();
 
     for (int i = 0; i < 98; i++) {
         ft_free(ptrs[i]);
@@ -21,6 +25,8 @@ int main(void)
 
     ft_free(ptrs[98]);
     ft_free(ptrs[99]);
+
+    show_alloc_mem();
 
     return 0;
 }

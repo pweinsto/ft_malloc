@@ -45,5 +45,6 @@ extern t_zone	*g_zones[3];
 
 void *ft_malloc(size_t size);
 void ft_free(void *ptr);
+void show_alloc_mem(void);
 
 # endif
